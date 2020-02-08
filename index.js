@@ -125,9 +125,9 @@ TypedocWebpackPlugin.prototype.apply = function(compiler) {
 		callback();
 	});
 
-	compiler.plugin('done', function (stats) {
-		console.log('Typedoc finished generating');
-	});
+	compiler.hooks.emit.tap("done", function(stats) {
+    console.log("Typedoc finished generating");
+  });
 };
 
 module.exports = TypedocWebpackPlugin;
